@@ -5,7 +5,7 @@ const Spherical_1 = require("./Spherical");
 const Vector2_1 = require("./Vector2");
 const Vector3_1 = require("./Vector3");
 const Random_1 = require("../utils/Random");
-const Performance_1 = require("../utils/Performance");
+const timeTakes_1 = require("../utils/timeTakes");
 const minRange = -5; // min points' coordinate x/y/z
 const maxRange = 5; // max points' coordinate x/y/z
 const amount = 1; // amount of point pairs
@@ -111,14 +111,15 @@ for (let i = 0; i < Math.abs(big_amount); i++) {
     polarPairs.push([p1, p2]);
 }
 // Сartesian2d performance time
-timeElapsed = Performance_1.Performance.timeTakes(() => {
+console.log("@@@@@", timeTakes_1.timeTakes);
+timeElapsed = (0, timeTakes_1.timeTakes)(() => {
     cartesian2dPairs.forEach((pair) => {
         Vector2_1.Vector2.getDistance(pair[0], pair[1]);
     });
 });
 console.log(`Cartesian 2d distance takes ${timeElapsed} ms`);
 // Polar performance time
-Performance_1.Performance.timeTakes(() => {
+timeElapsed = (0, timeTakes_1.timeTakes)(() => {
     polarPairs.forEach((pair) => {
         Polar_1.Polar.getDistance(pair[0], pair[1]);
     });
@@ -135,14 +136,14 @@ for (let i = 0; i < Math.abs(big_amount); i++) {
     sphericalPairs.push([s1, s2]);
 }
 // Cartesian3d performance time
-Performance_1.Performance.timeTakes(() => {
+timeElapsed = (0, timeTakes_1.timeTakes)(() => {
     cartesian3dPairs.forEach((pair) => {
         Vector3_1.Vector3.getDistance(pair[0], pair[1]);
     });
 });
 console.log(`Cartesian 3d distance takes ${timeElapsed} ms`);
 // Spherical  performance time
-Performance_1.Performance.timeTakes(() => {
+timeElapsed = (0, timeTakes_1.timeTakes)(() => {
     sphericalPairs.forEach((pair) => {
         Spherical_1.Spherical.getDistance(pair[0], pair[1]);
     });

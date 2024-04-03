@@ -1,12 +1,13 @@
 {
-  "name": "coordinate-systems",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+	"name": "coordinate-systems",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "tsc && node dist/src/index.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
 }
