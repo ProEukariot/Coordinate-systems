@@ -3,7 +3,7 @@ import { Spherical } from "./Spherical";
 import { Vector2 } from "./Vector2";
 import { Vector3 } from "./Vector3";
 import { Random } from "../utils/Random";
-import { Performance } from "../utils/Performance";
+import { timeTakes } from "../utils/timeTakes";
 
 const minRange = -5; // min points' coordinate x/y/z
 const maxRange = 5; // max points' coordinate x/y/z
@@ -183,8 +183,9 @@ for (let i = 0; i < Math.abs(big_amount); i++) {
 }
 
 // Сartesian2d performance time
+console.log("@@@@@", timeTakes);
 
-timeElapsed = Performance.timeTakes(() => {
+timeElapsed = timeTakes(() => {
 	cartesian2dPairs.forEach((pair) => {
 		Vector2.getDistance(pair[0], pair[1]);
 	});
@@ -194,7 +195,7 @@ console.log(`Cartesian 2d distance takes ${timeElapsed} ms`);
 
 // Polar performance time
 
-Performance.timeTakes(() => {
+timeElapsed = timeTakes(() => {
 	polarPairs.forEach((pair) => {
 		Polar.getDistance(pair[0], pair[1]);
 	});
@@ -225,7 +226,7 @@ for (let i = 0; i < Math.abs(big_amount); i++) {
 
 // Cartesian3d performance time
 
-Performance.timeTakes(() => {
+timeElapsed = timeTakes(() => {
 	cartesian3dPairs.forEach((pair) => {
 		Vector3.getDistance(pair[0], pair[1]);
 	});
@@ -235,7 +236,7 @@ console.log(`Cartesian 3d distance takes ${timeElapsed} ms`);
 
 // Spherical  performance time
 
-Performance.timeTakes(() => {
+timeElapsed = timeTakes(() => {
 	sphericalPairs.forEach((pair) => {
 		Spherical.getDistance(pair[0], pair[1]);
 	});
